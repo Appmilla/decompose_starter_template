@@ -13,14 +13,19 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import com.example.myapplication.shared.main.DefaultMainComponent
 import com.example.myapplication.shared.main.MainComponent
 import com.example.myapplication.shared.root.RootComponent.Child
+import com.example.myapplication.shared.unlock.DefaultUnlockComponent
+import com.example.myapplication.shared.unlock.UnlockComponent
 import com.example.myapplication.shared.welcome.DefaultWelcomeComponent
 import com.example.myapplication.shared.welcome.WelcomeComponent
+import com.russhwolf.settings.Settings
+import com.russhwolf.settings.set
 
 class DefaultRootComponent(
     componentContext: ComponentContext,
 ) : RootComponent, ComponentContext by componentContext {
 
     private val navigation = StackNavigation<Config>()
+    private val settings: Settings = Settings()
 
     override val stack: Value<ChildStack<*, Child>> =
         childStack(
@@ -30,10 +35,28 @@ class DefaultRootComponent(
             childFactory = ::child,
         )
 
+    init {
+        //settings.clear()
+        // Check for first run
+        val isFirstRun = settings.getBoolean("isFirstRun", true)
+        if (isFirstRun) {
+            //child(Config.Welcome, componentContext)
+            navigation.push(Config.Welcome)
+            settings["isFirstRun"] = false
+        } else {
+            //child(Config.Unlock, componentContext)
+            navigation.push(Config.Unlock)
+            // Check for stored OAuth tokens
+            //val hasTokens = kvault.string("accessToken") != null && kvault.string("refreshToken") != null
+            //model.screen = if (hasTokens) Screen.Unlock else Screen.Authenticate
+        }
+    }
+
     private fun child(config: Config, childComponentContext: ComponentContext): Child =
         when (config) {
             is Config.Main -> Child.Main(mainComponent(childComponentContext))
             is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
+            is Config.Unlock -> Child.Unlock(unlockComponent(childComponentContext))
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
@@ -48,6 +71,12 @@ class DefaultRootComponent(
             onFinished = navigation::pop,
         )
 
+    private fun unlockComponent(componentContext: ComponentContext): UnlockComponent =
+        DefaultUnlockComponent(
+            componentContext = componentContext,
+            onFinished = navigation::pop,
+        )
+
     override fun onBackClicked(toIndex: Int) {
         navigation.popTo(index = toIndex)
     }
@@ -58,5 +87,8 @@ class DefaultRootComponent(
 
         @Parcelize
         data object Welcome : Config
+
+        @Parcelize
+        data object Unlock : Config
     }
 }

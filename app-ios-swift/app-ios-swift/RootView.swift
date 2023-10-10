@@ -14,6 +14,7 @@ struct RootView: View {
             getTitle: {
                 switch $0 {
                 case is RootComponentChild.Main: return "Decompose Template"
+                case is RootComponentChild.Unlock: return "Unlock Screen"
                 case is RootComponentChild.Welcome: return "Welcome Screen"
                 default: return ""
                 }
@@ -22,6 +23,7 @@ struct RootView: View {
         ) {
             switch $0 {
             case let child as RootComponentChild.Main: MainView(child.component)
+            case let child as RootComponentChild.Unlock: UnlockView(child.component)
             case let child as RootComponentChild.Welcome: WelcomeView(child.component)
             default: EmptyView()
             }

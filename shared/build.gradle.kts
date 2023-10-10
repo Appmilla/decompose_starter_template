@@ -28,6 +28,7 @@ kotlin {
 
             export(libs.decompose.decompose)
             export(libs.essenty.lifecycle)
+            export(libs.multiplatform.settings)
         }
     }
 
@@ -36,6 +37,7 @@ kotlin {
             dependencies {
                 api(libs.decompose.decompose)
                 api(libs.essenty.lifecycle)
+                api(libs.multiplatform.settings)
             }
         }
         val commonTest by getting {

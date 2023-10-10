@@ -18,6 +18,7 @@
 		B6430CEE2A902AB1002F7636 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6430CED2A902AB1002F7636 /* StateValue.swift */; };
 		B6430CF02A902AF3002F7636 /* ObservableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6430CEF2A902AF3002F7636 /* ObservableValue.swift */; };
 		B6430CF22A902C7E002F7636 /* MutableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6430CF12A902C7E002F7636 /* MutableValue.swift */; };
+		CFF177272AD5AA4E00F87FE8 /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF177262AD5AA4E00F87FE8 /* UnlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		B6430CED2A902AB1002F7636 /* StateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 		B6430CEF2A902AF3002F7636 /* ObservableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableValue.swift; sourceTree = "<group>"; };
 		B6430CF12A902C7E002F7636 /* MutableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableValue.swift; sourceTree = "<group>"; };
+		CFF177262AD5AA4E00F87FE8 /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
+				CFF177262AD5AA4E00F87FE8 /* UnlockView.swift */,
 			);
 			path = "app-ios-swift";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				796CE3B92AB4E4CF00A9F9AD /* MainView.swift in Sources */,
 				B6430CEE2A902AB1002F7636 /* StateValue.swift in Sources */,
 				796CE3BD2AB4E78900A9F9AD /* StackView.swift in Sources */,
+				CFF177272AD5AA4E00F87FE8 /* UnlockView.swift in Sources */,
 				B6430CF22A902C7E002F7636 /* MutableValue.swift in Sources */,
 				B6430CF02A902AF3002F7636 /* ObservableValue.swift in Sources */,
 				796CE3BF2AB4EA1500A9F9AD /* SimpleChildStack.swift in Sources */,

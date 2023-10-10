@@ -10,11 +10,11 @@ android-compileSdk = "34"
 android-targetSdk = "34"
 
 compose-jetbrains = "1.5.0-beta02"
-
 androidx-activityCompose = "1.8.0-alpha06"
 
 decompose = "2.1.0-compose-experimental-alpha-07"
 essenty = "1.2.0-alpha-06"
+msettings = "1.1.0"
 
 [plugins]
 
@@ -33,3 +33,4 @@ decompose-decompose = { group = "com.arkivanov.decompose", name = "decompose", v
 decompose-extensionsComposeJetbrains = { group = "com.arkivanov.decompose", name = "extensions-compose-jetbrains", version.ref = "decompose" }
 
 essenty-lifecycle = { group = "com.arkivanov.essenty", name = "lifecycle", version.ref = "essenty" }
+multiplatform-settings = { group = "com.russhwolf", name = "multiplatform-settings-no-arg", version.ref = "msettings"}

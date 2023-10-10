@@ -15,6 +15,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import com.example.myapplication.main.MainContent
 import com.example.myapplication.shared.root.RootComponent
 import com.example.myapplication.shared.root.RootComponent.Child
+import com.example.myapplication.unlock.UnlockContent
 import com.example.myapplication.welcome.WelcomeContent
 
 @Composable
@@ -26,11 +27,12 @@ fun RootContent(
         Children(
             stack = component.stack,
             modifier = Modifier.fillMaxSize(),
-            animation = stackAnimation(fade() + scale())
+            animation = stackAnimation(fade() + scale()),
         ) {
             when (val instance = it.instance) {
                 is Child.Main -> MainContent(component = instance.component)
                 is Child.Welcome -> WelcomeContent(component = instance.component)
+                is Child.Unlock -> UnlockContent(component = instance.component)
             }
         }
     }
