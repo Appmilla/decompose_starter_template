@@ -40,11 +40,8 @@ class DefaultRootComponent(
         // Check for first run
         val isFirstRun = settings.getBoolean("isFirstRun", true)
         if (isFirstRun) {
-            //child(Config.Welcome, componentContext)
             navigation.push(Config.Welcome)
-            settings["isFirstRun"] = false
         } else {
-            //child(Config.Unlock, componentContext)
             navigation.push(Config.Unlock)
             // Check for stored OAuth tokens
             //val hasTokens = kvault.string("accessToken") != null && kvault.string("refreshToken") != null
